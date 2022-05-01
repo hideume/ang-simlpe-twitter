@@ -34,7 +34,8 @@
     float: right;
     width: auto;
     max-width: 300px;
-    max-height: 100px;
+    height: 200px;
+    overflow-y: auto;
   }
 }
 .card-text {
