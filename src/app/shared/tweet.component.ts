@@ -4,7 +4,6 @@ import { Component , Input ,Output,OnInit,ViewChildren,
           ElementRef} from '@angular/core';
 import { Tweet } from './tweet';
 import { Router } from '@angular/router';
-import { TwitterService } from '../twitter.service';
 //import { TwgetComponent } from './twget/twget.component';
 //import { ComponentFactory, ComponentFactoryResolver,ViewContainerRef } from '@angular/core';
 //import { animate } from '@angular/animations';
@@ -22,18 +21,14 @@ export class TweetComponent implements OnInit {
   @Input() tweet: Tweet;
   @Input() retweet: Tweet;
   @Input() count: string;
-  // actionの使い方が違うようだなあ、なにしたかったんだろう？
-  //@Output() action = new EventEmitter<{property: string, tweet: Tweet}>();
+  @Output() action = new EventEmitter<{property: string, tweet: Tweet}>();
   @ViewChildren('imgtags',{read:ElementRef}) imgs:QueryList<ElementRef>;
 
-  mediaflg:boolean;
-  actionflg:boolean = false;
 
   constructor(
     //public viewContainerRef: ViewContainerRef,
     //private resolver: ComponentFactoryResolver
-    private route:Router, //routerLinkのために必要だと思っているのだが・・
-    private twitter:TwitterService
+    private route:Router //routerLinkのために必要だと思っているのだが・・
   ){
     //this.mediaurl = "tweet.entities?.media[0].media_url_https";
   };
@@ -55,17 +50,6 @@ export class TweetComponent implements OnInit {
     return false;
   }
 
-  hasMovie(tweet: Tweet) {
-    if (tweet.entities.media !=null
-      　&& tweet.extended_entities != null 
-        && tweet.extended_entities.media.length 
-        && tweet.extended_entities.media[0].type === 'video') {
-      return true;
-    }else{
-      return false;
-    }
-  }
-
   //2
   hasPhoto2(tweet: Tweet) {
     if (tweet.entities.media
@@ -75,19 +59,14 @@ export class TweetComponent implements OnInit {
     return false;
   }
 
-  //retwetを操作させるとここにくる
   toggleAction(property: 'favorite'|'retweet') {
-    //this.action.emit({property, tweet: this.tweet});
-    this.action2(property,this.tweet);
+    this.action.emit({property, tweet: this.tweet});
   }
 
   TWstatus(msg: any){
     console.log(msg);
   }
 
-  /*
-  ダイアログからよばれる。
-  */
   imagemv(norp,tweet: Tweet){
     let setno = this.getnum();
     let i = 0;
@@ -120,38 +99,4 @@ export class TweetComponent implements OnInit {
     });
     return ri;
   };
-
-  getMovie(tw:Tweet):string {
-    var rt:string;
-    var bit:number;
-    tw.extended_entities.media[0].video_info.variants.forEach((va)=> {
-      if(va.content_type == 'video/mp4' && (va.bitrate <= 832000)){
-        rt = va.url;
-        bit = va.bitrate; 
-      }
-    });
-    //console.log("Download="+rt+" bitrate="+bit);
-    return rt;
-  }
-
-  //tweets.componentから移植したが・・toggleActionでいいのか？
-  action2(action,tweet:Tweet) {
-    //if (this.inflight) {
-    //  return;
-    //}
-
-    const stateKey = action.property === 'favorite' ? 'favorited' : 'retweeted';
-    //const newState = !action.tweet[stateKey];
-    //これはreteetをトグルしないといけないのだがとりあえずtrueにする
-    const newState = true;
-
-    //this.inflight = true;
-    this.twitter.action(action, tweet.id_str, newState).subscribe(tweet2 => {
-      tweet2[stateKey] = newState;
-      tweet2[action + '_count'] += newState ? 1 : -1;
-      //結果をモーダルボックスに表示
-      this.actionflg = true;
-    },error => {console.log("action error"+error)}
-    );
-  }
 }

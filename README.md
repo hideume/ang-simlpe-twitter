@@ -48,4 +48,3 @@ sequenceDiagram
 * 11/24 retweet
 * 11/29 search
 * 21/11/28 home,endkeyを有効にした
-* 21/12/04 angular12に対応

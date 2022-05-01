@@ -20,6 +20,12 @@ export class Tweet {
           resize: 'fit' | 'crop';
         };
       };
+      video_info: {
+        variants :
+          {url:string;
+          content_type:string;
+          bitrate:number}[];
+      };
     }[];
     urls: {
       display_url: string;
@@ -47,12 +53,6 @@ export class Tweet {
           h: number;
           resize: 'fit' | 'crop';
         };
-      }
-      video_info: {
-        variants :
-         {url:string;
-          content_type:string;
-          bitrate:number}[];
       };
     }[];
     urls: {
@@ -92,12 +92,9 @@ export class Tweet {
     follow_request_sent: boolean;
   };
   retweet_count: number;
-  favorite_count: number;
   favorited: boolean;
   retweeted: boolean;
   lang: string;
   retweet_status: Tweet;
   mediaurl: string;
-  is_quote_status: boolean;
-  quoted_status: Tweet;
 }

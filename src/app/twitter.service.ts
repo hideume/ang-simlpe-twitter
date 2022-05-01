@@ -76,7 +76,7 @@ export class TwitterService {
   }
 
   search(query: string) {
-    return this.http.get<TwitterResponse>(`${environment.api}/search?query=${query}&maxResults=100`);
+    return this.http.get<TwitterResponse>(`${environment.api}/search?query=${query}`);
   }
 
   tweet(msg: string) {

@@ -55,5 +55,4 @@ export class UserTimelineComponent implements OnInit{
   
     }
   
-    
   }

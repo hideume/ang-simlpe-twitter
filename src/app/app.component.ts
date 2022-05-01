@@ -9,7 +9,6 @@ import { Router } from '@angular/router'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  //ヘッダーのinput要素
   @ViewChild('in1',{static:true,read: ElementRef}) public in1:ElementRef;
   // login selfuser
   user;
@@ -21,13 +20,11 @@ export class AppComponent implements OnInit {
       this.aptwsv=twsv;
     }
 
-  //初期設定で自分のuserをthis.userに設定する
   ngOnInit() {
     this.twitter.user().subscribe(user => this.user = user.data);
   }
 
-  //ヘッダーでserchをクリックした場合
-  search() {
+  clicked() {
     //console.log("clicked"+this.in1.nativeElement.value);
     //this.router.navigate(['/']);
     this.router.navigate(['/search',this.in1.nativeElement.value]);

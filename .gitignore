@@ -1,12 +1,5 @@
 node_modules
 dist
-<<<<<<< HEAD
 package-lock.json
 launch.json
 styles.scss
-=======
-launch.json
-package-lock.json
-package.json
-.angular
->>>>>>> a59db2ab49432e05a425e249bb21fc6cb7e71170
