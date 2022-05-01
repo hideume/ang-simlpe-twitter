@@ -54,6 +54,12 @@ export class Tweet {
           resize: 'fit' | 'crop';
         };
       };
+      video_info: {
+        variants :
+         {url:string;
+          content_type:string;
+          bitrate:number}[];
+      };
     }[];
     urls: {
       display_url: string;
