@@ -1,7 +1,14 @@
 <div class="tweets" (window:keydown)=OnKeydown($event)>
   <!-- <div class="card" *ngFor="let tweet of tweets; let i = index"> -->
   <div class="card" *ngFor="let tweet of tweets; let i = index"> 
+<<<<<<< HEAD
     <app-tweet class="card2" *ngIf="tweet.retweeted_status" [tweet]="tweet.retweeted_status" [retweet]="tweet" (action)="action($event, i)" [count]="i"></app-tweet>
     <app-tweet class="card2" *ngIf="!tweet.retweeted_status" [tweet]="tweet" (action)="action($event, i)" [count]="i"></app-tweet>
+=======
+    <!-- <app-tweet *ngIf="tweet.retweeted_status" [tweet]="tweet.retweeted_status" [retweet]="tweet" (action)="action($event, i)" [count]="i"></app-tweet> -->
+    <app-tweet *ngIf="tweet.retweeted_status" [tweet]="tweet.retweeted_status" [retweet]="tweet"  [count]="i"></app-tweet>
+    <!-- <app-tweet *ngIf="!tweet.retweeted_status" [tweet]="tweet" (action)="action($event, i)" [count]="i"></app-tweet> -->
+    <app-tweet *ngIf="!tweet.retweeted_status" [tweet]="tweet" [count]="i"></app-tweet>
+>>>>>>> a59db2ab49432e05a425e249bb21fc6cb7e71170
   </div>
 </div>

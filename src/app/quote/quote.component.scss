@@ -1,7 +1,14 @@
+#alldiv {
+  border:solid 1px silver;
+  width:99%;border-radius: 8px;
+  box-shadow:3px 3px 3px gray;
+  padding:0px;
+}
+
 .card-header {
-  display: inline; //blockにすると変になる
-  padding: 0;
-  flex-grow: 0;
+  //display: inline; //blockにすると変になる
+  margin-left: 0px;
+  font-size: small;
 
   .retweeted {
     font-size: 0.5rem;
@@ -48,22 +55,14 @@
 .card-footer {
   //display:flex;
   //margin-top: -30px;;
-<<<<<<< HEAD
-  //height: 35px;
-  //margin-top: auto; //これが効かないんだよなあ
-  //margin-bottom: 2px;
-  //position: static; //position: absoluteが設定してあるんだよねえ
-  flex-grow: 0;
-=======
   height: 35px;
-  margin-top: auto ; //これが効かないんだよなあ
+  //margin-top: auto; //これが効かないんだよなあ
   //margin-bottom: 2px;
   //position: static; //position: absoluteが設定してあるんだよねえ
   //position: fixed; //これはダメですね。画面の最下限になってしまう
   //bottom: 0; //これは上とセット
   //align-self: self-end;
-  align-items:flex-end;
->>>>>>> a59db2ab49432e05a425e249bb21fc6cb7e71170
+  //align-items:flex-end;
 }
 
 .eximg {

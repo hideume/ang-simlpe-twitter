@@ -1,14 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ClarityModule } from '@clr/angular';
+import { ClarityModule, ClrIconModule } from '@clr/angular';
+import '@cds/core/icon/register.js';
+//import { ClarityIcons, userIcon } from '@cds/core/icon';
+import {MatIconModule} from '@angular/material/icon'
 //import { MomentModule } from 'angular2-moment';
 import { MomentModule } from 'ngx-moment';
 import 'moment/locale/ja';
 
 import { AppComponent } from './app.component';
 import { TweetComponent } from './shared/tweet.component';
+import { QuoteComponent } from './quote/quote.component';
 import { TweetsComponent } from './tweets/tweets.component';
 import { TweetPipe } from './shared/tweet.pipe';
 import { LimitComponent } from './limit/limit.component';
@@ -29,6 +33,7 @@ import { RouterModule } from '@angular/router';
   declarations: [
     AppComponent,
     TweetComponent,
+    QuoteComponent,
     TweetsComponent,
     TweetPipe,
     LimitComponent,
@@ -49,6 +54,8 @@ import { RouterModule } from '@angular/router';
     MomentModule,
     AppRoutingModule,
     RouterModule ,
+    ClrIconModule,
+    MatIconModule,
   ],
   exports: [
     UserTimelineComponent
@@ -57,6 +64,7 @@ import { RouterModule } from '@angular/router';
     TwitterService,
     AppRoutingModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}
