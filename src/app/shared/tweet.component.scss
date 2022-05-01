@@ -1,6 +1,7 @@
 .card-header {
   display: inline; //blockにすると変になる
   padding: 0;
+  flex-grow: 0;
 
   .retweeted {
     font-size: 0.5rem;
@@ -47,10 +48,11 @@
 .card-footer {
   display:flex;
   //margin-top: -30px;;
-  height: 35px;
+  //height: 35px;
   //margin-top: auto; //これが効かないんだよなあ
-  margin-bottom: 2px;
+  //margin-bottom: 2px;
   //position: static; //position: absoluteが設定してあるんだよねえ
+  flex-grow: 0;
 }
 
 .eximg {
