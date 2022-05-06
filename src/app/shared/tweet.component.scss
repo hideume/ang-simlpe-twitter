@@ -29,12 +29,13 @@
   text-align: right;
   //flex: 1;
   img {
-    display: flex;
+    //display: flex;
     text-align: right;
     float: right;
     width: auto;
     max-width: 300px;
-    height: 200px;
+    max-height: 200px;
+    //height: auto;
     overflow-y: auto;
   }
 }

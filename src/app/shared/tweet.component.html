@@ -29,6 +29,7 @@
     <clr-icon shape="minus"></clr-icon> 
     {{tweet.created_at | date:'MM/dd HH:mm:SS'}}
 </div>
+<app-quote *ngIf="tweet.quoted_status?.user " [tweet]="tweet.quoted_status"></app-quote>
 <div class="card-footer" *ngIf="retweet">
     {{retweet.created_at | amTimeAgo}} 
     <clr-icon shape="minus"></clr-icon> 

@@ -9,6 +9,7 @@ import 'moment/locale/ja';
 
 import { AppComponent } from './app.component';
 import { TweetComponent } from './shared/tweet.component';
+import { QuoteComponent } from './quote/quote.component';
 import { TweetsComponent } from './tweets/tweets.component';
 import { TweetPipe } from './shared/tweet.pipe';
 import { LimitComponent } from './limit/limit.component';
@@ -29,6 +30,7 @@ import { RouterModule } from '@angular/router';
   declarations: [
     AppComponent,
     TweetComponent,
+    QuoteComponent,
     TweetsComponent,
     TweetPipe,
     LimitComponent,
