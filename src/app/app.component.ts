@@ -36,6 +36,8 @@ export class AppComponent implements OnInit {
     .subscribe(d=>{
       console.log("tweet ok");
       this.in1.nativeElement.value = "";
+      //直ぐに表示を反映させようとしたが、直ぐには変更しないなあ・・
+      this.aptwsv.getnewTweets();
     },
     e=>{console.log("tweet error")});
   }
