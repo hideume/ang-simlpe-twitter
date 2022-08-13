@@ -10,7 +10,9 @@ import { Tweet } from './tweet';
 
 export class TweetService {
 
+//表示しているtweet
 tweets: Tweet[]=[];
+//表示しているtweetのid
 ids=[] ;
 timer;
 since = '';
