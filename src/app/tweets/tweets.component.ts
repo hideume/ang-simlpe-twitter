@@ -28,15 +28,21 @@ export class TweetsComponent implements OnInit  {
     }
   }
 
+  //ここでretweetとfevariteを送信している
   action(action, index) {
     if (this.inflight) {
+      //これはpost中に実行しないようにしているらしい
+      //inflightというのは実行中という意味
       return;
     }
 
+    //indexというのがどこから送られてきているのか不明
     const stateKey = action.property === 'favorite' ? 'favorited' : 'retweeted';
+    //stateKeyというのは'favorited' : 'retweeted'をon/offさせるということ
     const newState = !action.tweet[stateKey];
 
     this.inflight = true;
+    //twitterというのはtwitter.service.tsなのでここでpostしている
     this.twitter.action(action.property, action.tweet.id_str, newState).subscribe(tweet => {
       this.tweets[index][stateKey] = newState;
       this.tweets[index][action.property + '_count'] += newState ? 1 : -1;

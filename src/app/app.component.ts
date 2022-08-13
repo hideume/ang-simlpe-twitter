@@ -33,8 +33,10 @@ export class AppComponent implements OnInit {
   tweet() {
     var msg = this.in1.nativeElement.value;
     this.twitter.tweet(msg)
-    .subscribe(d=>{console.log("tweet ok");
-    this.in1.nativeElement.value = "";
-    },e=>{console.log("tweet error")});
+    .subscribe(d=>{
+      console.log("tweet ok");
+      this.in1.nativeElement.value = "";
+    },
+    e=>{console.log("tweet error")});
   }
 }
