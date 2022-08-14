@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+
+
 import { ClarityModule } from '@clr/angular';
 //import { MomentModule } from 'angular2-moment';
 import { MomentModule } from 'ngx-moment';
@@ -24,7 +28,6 @@ import { TwitterService } from './twitter.service';
 import { TestComponent } from './test/test.component';
 import { TwgetComponent } from './shared/twget/twget.component';
 import { TrendComponent } from './trend/trend.component';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,7 @@ import { RouterModule } from '@angular/router';
     MomentModule,
     AppRoutingModule,
     RouterModule ,
+    MatIconModule,
   ],
   exports: [
     UserTimelineComponent
