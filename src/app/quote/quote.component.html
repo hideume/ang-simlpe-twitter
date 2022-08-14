@@ -1,6 +1,6 @@
 <div id="alldiv"  >
 <div class="card-header" style="" >{{tweet.user.name}}(<a routerLink="/userhome/{{tweet.user.screen_name}}" >@{{tweet.user.screen_name}}</a>)
-  <span *ngIf="retweet" class="retweeted"><clr-icon shape="sync"></clr-icon> Retweeted by {{retweet.user.name}} (@{{retweet.user.screen_name}})</span>
+  <span *ngIf="retweet" class="retweeted"><mat-icon>sync</mat-icon> Retweeted by {{retweet.user.name}} (@{{retweet.user.screen_name}})</span>
   <div class="card-header-actions" style="font-size: small;">
     <!-- ここは「いいね」のtooltipの定義 -->
     <a role="tooltip" aria-haspopup="true" class="tooltip tooltip-xs">
@@ -37,12 +37,12 @@
   <!-- <app-tweet *ngIf="tweet.is_quote_status" [tweet]="tweet.quoted_status"></app-tweet> -->
   <div class="card-footer" *ngIf="!retweet">
     {{tweet.created_at |  amTimeAgo}} 
-    <clr-icon shape="minus"></clr-icon> 
+    <mat-icon>remove</mat-icon> 
     {{tweet.created_at | date:'MM/dd HH:mm:SS'}}
 </div>
 <div class="card-footer" *ngIf="retweet">
     {{retweet.created_at | amTimeAgo}} 
-    <clr-icon shape="home"></clr-icon> 
+    <mat-icon>remove</mat-icon> 
     <!-- <mat-icon svgIcon="Home">Home</mat-icon> -->
     {{retweet.created_at | date:'MM/dd HH:mm:SS'}}
 </div>
@@ -55,8 +55,8 @@
       <!-- ここのimgは複数存在し、style.displayで表示、非表示を制御 -->
       <img  #imgtags *ngFor="let ig of tweet.extended_entities.media;first as fst" [src]="ig.media_url_https" [style.display]="fst?'block':'none'" height="500" class="eximg">
       <div style="text-align: center;" *ngIf="hasPhoto2(tweet)" >
-        <button (click)="imagemv(0,tweet)"><clr-icon shape="rewind"></clr-icon></button>
-        <button (click)="imagemv(1,tweet);"><clr-icon shape="fast-forward"></clr-icon></button>
+        <button (click)="imagemv(0,tweet)"><mat-icon>arrow right</mat-icon></button>
+        <button (click)="imagemv(1,tweet);"><mat-icon>arrow left</mat-icon></button>
       </div>
     </div>
     <!-- 動画の場合 -->
