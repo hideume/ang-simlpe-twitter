@@ -34,9 +34,9 @@
     float: right;
     width: auto;
     max-width: 300px;
-    max-height: 200px;
-    //height: auto;
-    overflow-y: auto;
+    //max-height: 200px;
+    height: 200px;
+    overflow-y: scroll;
   }
 }
 .card-text {
